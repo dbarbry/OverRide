@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void) {
     int password;
@@ -8,7 +9,7 @@ int main(void) {
     puts("***********************************");
     printf("Password:");
 
-    scanf("%d", password);
+    scanf("%d", &password);
 
     if (password == 0x149c) {
         puts("\nAuthenticated!");
