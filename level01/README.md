@@ -119,7 +119,7 @@ level01@OverRide:~$ file ./level01
 
 level01 is compiled as a 32bit ELF file, in a 64bit machine. That's why we had 32bit alike addresses even while being in a 64bit machine.
 
-Now that we know that, why our shellcode in env didn't work ? The code is still in 32bit so the shellcode should still be correct and adapted for this binary ? Well the problem does not come from the shellcode but its address. We wrote a little c file that has to print a 32bit address in little endian format of a specific env variable (accessible at ./Resources/env_address.c)
+Now that we know that, why our shellcode in env didn't work ? The code is still in 32bit so the shellcode should still be correct and adapted for this binary ? Well the problem does not come from the shellcode but its address. We wrote a little c file that has to print a 32bit address in little endian format of a specific env variable (accessible at .[/Resources/env_address.c](https://github.com/kbarbry/OverRide/blob/main/level01/Resources/env_address.c))
 
 ## Important doc
 
