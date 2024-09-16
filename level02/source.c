@@ -20,6 +20,8 @@ int main(void) {
     }
 
     length = fread(password, 1, 41, fd);
+    password[strcspn(password, "\n")] = '\0';
+
     if (length != 41) {
         fwrite("ERROR: failed to read password file\n", 1, 36, stderr);
         fwrite("ERROR: failed to read password file\n", 1, 36, stderr);
@@ -33,7 +35,12 @@ int main(void) {
     puts("\\**************************************/");
     
     printf("--[ Username: ");
+    fgets(username, sizeof(username), stdin);
+    username[strcspn(username, "\n")] = '\0';
+
+    printf("--[ Password: ");
     fgets(input_password, sizeof(input_password), stdin);
+    input_password[strcspn(input_password, "\n")] = '\0';
     puts("*****************************************");
 
     if (strncmp(password, input_password, 41) == 0) {
