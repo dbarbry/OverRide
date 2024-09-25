@@ -13,10 +13,11 @@ void    decrypt(unsigned int key) {
     for (int i = 0; i < len; i++)
         str[i] ^= key;
     
-    if (!strcmp(str, "Congratulations!"))
-        return system("/bin/sh");
+    if (!strcmp(str, "Congratulations!")) {
+        system("/bin/sh");
+    }
     
-    return puts("\nInvalid Password");
+    puts("\nInvalid Password");
 }
 
 void    test(int input, int secret) {
