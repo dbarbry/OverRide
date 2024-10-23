@@ -9,7 +9,7 @@ RELRO           STACK CANARY      NX            PIE             RPATH      RUNPA
 Partial RELRO   Canary found      NX enabled    No PIE          No RPATH   No RUNPATH   /home/users/level06/level06
 ```
 
-This one has some great security, a Partial RELRO, a Canary stack and NX is enabled. That will be problematic to use a shellcode, or to make overflows that works. Now let's analyse the code.
+This one has some great security, a Partial RELRO, a stack Canary and NX is enabled. That will be problematic to use a shellcode, or to make overflows that works. Now let's analyse the code.
 
 ```c
 int auth(char *login, int password) {
