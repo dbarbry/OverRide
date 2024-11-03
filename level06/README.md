@@ -73,6 +73,8 @@ int main(void) {
 
 It is a code hard to understand at first glance but it is actually fast to explain, this code asks two input, a login and a password. The login will go through some encryption process, and the result of this is compared to the password, if they are the same then we get a shell. The login must be 6 characters and can't contain non printable characters, other than that can be anything. So for that we made a little C script that generate the hash made by the program with a custom login. It can be any login, since the password expected depends on the login:
 
+### Solution
+
 ```c
 int main(int ac, char **av) {
     char    login[32];

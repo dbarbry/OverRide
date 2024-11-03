@@ -79,7 +79,7 @@ Again a pretty long code that does a few thing. First we have to give it a filen
 
 That's a very weird way to do things but what we can notice as potential vulnerability is the presence of buffers with fixed size that we can interact with through av[1], the usage of strcpy instead of strncpy, the usage of exit instead of return, and also, something we haven't exploited yet, the usage of relative paths.
 
-### The solutions
+### Solution
 
 Since a stack canary is present, making overflows harder, and that Full RELRO is activated, so GOT overwrite is compromised, we started with the relative path option at first to see if something could be done with that or not.
 
